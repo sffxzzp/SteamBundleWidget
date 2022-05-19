@@ -43,7 +43,7 @@
 			});
 		}
 		var init = async function () {
-			var res = await fetch(`/api/?BundleID=${bundleid}&Region=${cc}&Language=${lang}`);
+			var res = await fetch(`http://127.0.0.1:8080/?BundleID=${bundleid}&Region=${cc}&Language=${lang}`);
 			var error = false;
 			var data = {};
 			if (res.ok) {
