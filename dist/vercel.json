@@ -2,9 +2,9 @@
   "rewrites": [
     { "source": "/:bundleid", "destination": "/index.html" },
     { "source": "/:bundleid/", "destination": "/index.html" },
-    { "source": "/:bundleid/:cc", "destination": "/index.html" }
-    { "source": "/:bundleid/:cc/", "destination": "/index.html" }
-    { "source": "/:bundleid/:cc/:lang", "destination": "/index.html" }
+    { "source": "/:bundleid/:cc", "destination": "/index.html" },
+    { "source": "/:bundleid/:cc/", "destination": "/index.html" },
+    { "source": "/:bundleid/:cc/:lang", "destination": "/index.html" },
     { "source": "/:bundleid/:cc/:lang/", "destination": "/index.html" }
   ],
   "headers": [
