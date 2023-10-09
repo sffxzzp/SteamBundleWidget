@@ -43,7 +43,7 @@
 			});
 		}
 		var init = async function () {
-			var res = await fetch(`http://127.0.0.1:8080/?BundleID=${bundleid}&Region=${cc}&Language=${lang}`);
+			var res = await fetch(`/api/?BundleID=${bundleid}&Region=${cc}&Language=${lang}`);
 			var error = false;
 			var data = {};
 			if (res.ok) {
@@ -58,11 +58,11 @@
 		}
 		init();
 	</script>
-	<link rel="stylesheet" href="https://store.st.dl.pinyuncloud.com/public/shared/css/motiva_sans.css?l=schinese">
-	<link rel="stylesheet" href="https://store.st.dl.pinyuncloud.com/public/css/v6/store.css?l=schinese">
-	<link rel="stylesheet" href="https://store.st.dl.pinyuncloud.com/public/css/v6/game.css?l=schinese">
-	<link rel="stylesheet" href="https://store.st.dl.pinyuncloud.com/public/shared/css/shared_global.css?l=schinese">
-	<link rel="stylesheet" href="https://store.st.dl.pinyuncloud.com/public/shared/css/buttons.css?l=schinese">
+	<link rel="stylesheet" href="https://store.steampowered.com/public/shared/css/motiva_sans.css?l=schinese">
+	<link rel="stylesheet" href="https://store.steampowered.com/public/css/v6/store.css?l=schinese">
+	<link rel="stylesheet" href="https://store.steampowered.com/public/css/v6/game.css?l=schinese">
+	<link rel="stylesheet" href="https://store.steampowered.com/public/shared/css/shared_global.css?l=schinese">
+	<link rel="stylesheet" href="https://store.steampowered.com/public/shared/css/buttons.css?l=schinese">
 	<div id="main_area" class="game_area_purchase_game_dropdown_subscription game_area_purchase_game" style="border-radius: 0; background: #282e39; height: 100px;">
 		<template v-if="error">
 			<div id="header" class="header_container"><h1 class="main_text"><a>错误</a></h1></div><div style="clear: both;"></div><div class="desc">无法读取这件物品的信息。</div><div style="clear: both;"></div>
@@ -73,7 +73,7 @@
 			<div class="bundle_contents_preview">
 				<div class="bundle_contents_preview_position">
 					<a v-for="item in data.Items" class="bundle_contents_preview_item ds_collapse_flag app_impression_tracked" :href="`https://store.steampowered.com/${item.Type}/${item.ID}/`" target="_blank">
-						<img :src="`https://media.st.dl.pinyuncloud.com/steam/${item.Type}s/${item.ID}/capsule_sm_120.jpg`" class="bundle_contents_preview_img">
+						<img :src="`https://media.steampowered.com/steam/${item.Type}s/${item.ID}/capsule_sm_120.jpg`" class="bundle_contents_preview_img">
 					</a>
 				</div>
 			</div>
