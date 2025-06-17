@@ -70,7 +70,7 @@
 			<div class="bundle_contents_preview">
 				<div class="bundle_contents_preview_position">
 					<a v-for="item in data.Items" class="bundle_contents_preview_item ds_collapse_flag app_impression_tracked" :href="`https://store.steampowered.com/${item.Type}/${item.ID}/`" target="_blank">
-						<img :src="`https://media.steampowered.com/steam/${item.Type}s/${item.ID}/capsule_sm_120.jpg`" class="bundle_contents_preview_img">
+						<img :src="`${item.Pic}`" class="bundle_contents_preview_img">
 					</a>
 				</div>
 			</div>

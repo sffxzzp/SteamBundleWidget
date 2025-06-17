@@ -28,6 +28,7 @@ type (
 			ID   string
 			Type string
 			Name string
+			Pic  string
 		}
 	}
 )
@@ -93,14 +94,25 @@ func (s *SteamBundle) getPageData(w *http.ResponseWriter) bool {
 	for _, it := range Items {
 		item := it.Find("div", "class", "tab_item")
 		itemKey := strings.Split(item.Attrs()["data-ds-itemkey"], "_")
+		id := strings.ToLower(itemKey[1])
+		itemType := strings.ToLower(itemKey[0])
+		pic := fmt.Sprintf("https://media.steampowered.com/steam/%ss/%s/capsule_sm_120.jpg", itemType, id)
+		capImg := item.Find("div", "class", "tab_item_cap").Find("img", "class", "tab_item_cap_img")
+		if capImg.Error == nil {
+			if src, ok := capImg.Attrs()["src"]; ok {
+				pic = strings.Replace(strings.Split(src, "?")[0], "184x69", "sm_120", 1)
+			}
+		}
 		s.Items = append(s.Items, struct {
 			ID   string
 			Type string
 			Name string
+			Pic  string
 		}{
-			ID:   strings.ToLower(itemKey[1]),
-			Type: strings.ToLower(itemKey[0]),
+			ID:   id,
+			Type: itemType,
 			Name: item.Find("div", "class", "tab_item_name").Text(),
+			Pic:  pic,
 		})
 	}
 	return true
